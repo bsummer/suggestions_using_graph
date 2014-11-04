@@ -1,0 +1,49 @@
+<%- @users.each do |user| %>
+    <% user_image = user.get_last_outfit_image %>
+    <div class="outfits" style="float:left;margin-right: 10px; margin-bottom: 20px;">
+      <div id="image-23116" data-id="23116" data-page="1" class="outfit" style="position: relative;">
+        <a class="gallery-overlay-trigger" data-id="23116" href="http://www.modcloth.com/style-gallery#">
+  <span class="border-box outfit-image" style="width: 300px;">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  </span>
+          <div class="shopthelook-ribbon"></div>
+          <span class="center-circle"><div class="circle"></div><div class="magnifying-glass"></div></span>
+          <img class="outfit-image" alt="Open Outfit Link 23116" src="<%=user_image.url%>" style="width: 300px;">
+          <span class="share-widget-container"><div class="share-widget"><div class="social-sharing-product"><a href="http://www.modcloth.com/style-gallery#" class="social-sharing icon-24 pinterest">Pinterest</a><a href="http://www.modcloth.com/style-gallery#" class="social-sharing icon-24 twitter">Twitter</a><a href="http://www.modcloth.com/style-gallery#" class="social-sharing icon-24 facebook">Facebook</a></div></div></span>
+        </a>
+        <div class="meta-bar" style="width: 290px;">
+          <div class="left">
+            <a href="<%="http://www.modcloth.com/style-gallery/users/#{user.account_id}"%>" class="name"><%= "#{user.first_name} #{user.last_name}" %></a>
+            <p class="upload-timestamp">4 minutes ago</p>
+          </div>
+          <div class="right">
+
+            <div class="bb-love-button gallery-view"><div><div class="love-it-button">
+              <div class="extra-love">
+                <div class="first-heart heart">
+                  <img alt="Heart1" src="/images/heart1.png">
+                </div>
+                <div class="second-heart heart">
+                  <img alt="Heart2" src="/images/heart2.png">
+                </div>
+              </div>
+              <div class="love-button  unloved">
+              </div>
+              <div class="loves-count">
+                0
+              </div>
+            </div>
+            </div></div>
+            <div class="touch-share-trigger"></div>
+          </div>
+
+          <div class="follow-me">
+            <%= link_to 'unfollow', :controller => 'following', :action => :unfollow, :id => user.account_id if !show_follow_link(user.account_id)%>
+          </div>
+          <div class="follow-me">
+            <%= link_to 'follow', :controller => 'following', :action => :follow, :id => user.account_id if show_follow_link(user.account_id)%>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- end %>

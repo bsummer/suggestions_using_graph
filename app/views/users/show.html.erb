@@ -1,0 +1,27 @@
+<h2><%= "#{@user.try(:first_name)} #{@user.try(:last_name)}" %></h2>
+
+<p>
+
+<h3>Followers</h3>
+<%- @followers.each do |follower| %>
+    <p>
+      <span class="name"><%= "#{follower.try(:first_name)} #{follower.try(:last_name)}" %></span>
+      <span class="follow"><%= link_to 'follow', :controller => 'users', :action => :follow, :id => follower.account_id  if show_follow_link(follower.account_id)%></span>
+    </p>
+<%- end %>
+
+<h3>Following</h3>
+<%- @following.each do |follow| %>
+    <p>
+      <span class="name"><%= "#{follow.try(:first_name)} #{follow.try(:last_name)}" %></span>
+      <span class="follow"><%= link_to 'follow', :controller => 'users', :action => :follow, :id => follow.account_id  if show_follow_link(follow.account_id)%></span>
+    </p>
+<%- end %>
+
+<h3>Recommendations</h3>
+<%- @recommended.each do |recommend| %>
+    <p>
+      <span class="name"><%= "#{recommend.try(:first_name)} #{recommend.try(:last_name)}" %></span>
+      <span class="follow"><%= link_to 'follow', :controller => 'users', :action => :follow, :id => recommend.account_id  if show_follow_link(recommend.account_id)%></span>
+    </p>
+<%- end %>

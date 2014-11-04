@@ -1,0 +1,8 @@
+<h2>All Our Lovely Users</h2>
+
+<%- @users.each do |user| %>
+   <p>
+     <span class="name"><%= link_to "#{user.first_name} #{user.last_name}", :controller => "users", :action => "show", :id => user.account_id %> </span>
+     <span class="follow"><%= link_to 'follow', :controller => 'users', :action => :follow, :id => user.account_id  if show_follow_link(user.account_id)%></span>
+   </p>
+<%- end %>

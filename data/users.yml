@@ -1,0 +1,9 @@
+- id: 1
+  first_name: Mary
+  last_name: Jane
+- id: 2
+  first_name: John
+  last_name: Doe
+- id: 3
+  first_name: Max
+  last_name: Smith
